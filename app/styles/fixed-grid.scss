@@ -1,0 +1,15 @@
+/*$break-xl: 1199px;
+$break-l : 1023px;
+$break-m : 767px;
+$break-s : 319px;*/
+
+// Working with bootstrap-affix
+.affix { position: fixed; };
+
+.td1.affix { 
+    width: 419.65px;
+
+    @media (max-width: 1199px)  { width: 358.05px }
+    @media (max-width: 1023px)  { width: 100%; position: relative; }
+    @media (max-width: 767px)   { width: 100%; position: relative; }
+}

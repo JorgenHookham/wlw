@@ -15,23 +15,23 @@
         <!-- build:js scripts/vendor/modernizr.js -->
         <script src="components/modernizr/modernizr.js"></script>
         <!-- endbuild -->
+        <!-- Typekit Fonts -->
+        <script type="text/javascript" src="//use.typekit.net/itj2bzu.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     </head>
     <body>
-        <header class="pickle"></header>
-        <div class="bread">
+        <header class="colour"></header>
+        <div class="back-panel">
             <div class="container">
-                <header class="mayo cf">
-                    <hgroup class="td1">
+                <header class="cf">
+                    <hgroup class="td1 m1">
                         <h1>What Lives Within</h1>
                         <p>You have an innate sense for finding what it is you're meant to be doing with your life.</p>
                     </hgroup>
-                    <nav class="social td2">
-                        <ul>
-                            <li>Facebok</li>
-                            <li>Twitter</li>
-                        </ul>
+                    <nav class="td2 m1">
+                        <img class="logo" src="images/logo.png">
                     </nav>
-                    <nav class="site td3">
+                    <nav class="td3 m1">
                         <ul>
                             <li>Home</li>
                             <li>Passion Profiles</li>
@@ -40,13 +40,24 @@
                 </header>
             </div>
         </div>
-        <div class="prosciutto">
+        <div class="front-panel">
             <div class="container">
-                <div class="bologne td1" data-spy="affix" data-offset-top="200">
+                <div class="slow-feed td1 m1" data-spy="affix" data-offset-top="400">
                     §
                 </div>
-                <div class="brie td2-3">
-                    §
+                <div class="fast-feed td2-td3 m1">
+                    <article class="feed-item feed-{{ post.type }}">
+                        <h1 class="feed-post--title"><a href="{% url 'blog_single' post_id=post.id %}">3 Steps to Becoming a Better Learner</a></h1>
+                        <p>Here’s a puzzle: Even though people talk about leadership all the time, and roughly eight kajillion leadership books have been published, we’re still plagued with fair to poor leaders in many, perhaps most, organizations.</p>
+                        <p>Why is this?  Part of the problem is that most of us, deep down, don’t really think it’s possible for an okay leader to become a great leader. We believe leadership ability is inborn. Either you have it or you don’t. Unfortunately, thinking something is impossible makes it very difficult to accomplish.</p>
+                        <p>The other difficulty is that most adults aren’t very good learners. In order to become the best leader (or, actually, the best anything) you’re capable of being, you have to become a great learner. Here are the three things most required to be that kind of powerful learner:</p>
+                        <ul class="feed-metadata">
+                            <li class="feed-metadata--date">5 Days Ago</li>
+                            <li>#Love</li>
+                            <li>#Compassion</li>
+                            <li>#Fun</li>
+                        </ul>
+                    </article>
                 </div>
             </div>
         </div>
@@ -65,7 +76,7 @@
 
         <!-- build:js scripts/main.js -->
         <script src="components/jquery/jquery.js"></script>
-        <script src="components/bootstrap/js/bootstrap-affix.js"></script>
+        <script src="components/sass-bootstrap/js/bootstrap-affix.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
 

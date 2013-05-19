@@ -1,0 +1,73 @@
+@import 'fixed-grid';
+@import 'gridset';
+
+$iconSpritePath: '../images/glyphicons-halflings.png';
+$iconWhiteSpritePath: '../images/glyphicons-halflings-white.png';
+
+$break-xl: 1199px;
+$break-l : 1023px;
+$break-m : 767px;
+$break-s : 319px;
+
+$type-stack--kepler: kepler-std, georgia, serif;
+$type-stack--proxima: proxima-nova, 'helveica neue', helvetica, sans-serif;
+
+// Clearfix
+.cf:before,
+.cf:after   { content: '.'; display: block; height: 0; overflow: hidden; }
+.cf:after   { clear: both; }
+.cf         { zoom: 1; } /* IE < 8 */
+
+body { margin: 0; font-family: $type-stack--kepler; font-size: 112.5%; font-weight: 400; }
+
+h1, h2, h3, h4 { font-family: $type-stack--proxima; }
+
+.container {
+    max-width: 1199px; margin: 0 auto;
+
+    @media (max-width: 1199px)  { max-width: 1024px; margin: 0 auto; }
+    @media (max-width: 1023px)  { max-width: 768px; margin: 0 auto; }
+    @media (max-width: 767px)   { max-width: 100%; margin: 0 auto; }
+}
+
+.colour {
+    position: fixed;
+    top: 0; right: 0; left: 0;
+    height: 8px;
+
+    background: rgb(190, 62, 57);
+
+    z-index: 30;
+}
+
+.back-panel {
+    position: fixed;
+    top: 0; right: 0; bottom: 0; left: 0;
+
+    background: url(../images/hero.jpg) 50% 50%;
+
+    color: #fff;
+
+    z-index: 10;
+}
+
+.logo { margin: 50px 0; }
+
+.front-panel {
+    position: relative;
+    top: 400px;
+    height: 1200px;
+    background: #fff;
+
+    z-index: 20;
+
+    @media (max-width: 767px) { height: 300px; }
+}
+
+.slow-feed {
+    z-index: 50;
+    background: rgba(0, 0, 0, .08);
+
+    height: 400px;
+}
+
