@@ -5,8 +5,10 @@ $break-s : 319px;*/
 
 // Working with bootstrap-affix
 .affix { position: fixed; };
+.affix-bottom { position: absolute; top: auto; bottom: 0; }
 
-.td1.affix { 
+.slow-feed.affix,
+.slow-feed.affix-bottom { 
     width: 419.65px;
 
     @media (max-width: 1199px)  { width: 358.05px }

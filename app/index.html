@@ -42,7 +42,7 @@
         </div>
         <div class="front-panel">
             <div class="container">
-                <div class="slow-feed td1 m1" data-spy="affix" data-offset-top="400">
+                <div class="slow-feed td1 m1">
                     §
                 </div>
                 <div class="fast-feed td2-td3 m1">
@@ -61,6 +61,7 @@
                 </div>
             </div>
         </div>
+        <div class="hero-footer"></div>
 
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
@@ -78,6 +79,31 @@
         <script src="components/jquery/jquery.js"></script>
         <script src="components/sass-bootstrap/js/bootstrap-affix.js"></script>
         <script src="scripts/main.js"></script>
+        <script>
+
+            function set_footer_size () {
+                $('.hero-footer').css('height', $(window).height() - 50);
+            }
+
+            function set_slow_feed_offset () {
+                $('.slow-feed').affix({
+                    offset: {
+                        top: parseInt($('.front-panel').css('top')),
+                        bottom: $(window).height() - 50
+                    }
+                });
+            }
+
+            $(function () {
+                set_footer_size();
+                set_slow_feed_offset();
+                $(window).resize(function () {
+                    set_footer_size();
+                    set_slow_feed_offset();
+                });
+            });
+
+        </script>
         <!-- endbuild -->
 
         <!-- build:js(.tmp) scripts/coffee.js -->
