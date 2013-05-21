@@ -1,16 +1,23 @@
-@import 'fixed-grid';
-@import 'gridset';
+//=========================
+// VARIABLES //////////////
+//=========================
 
-$iconSpritePath: '../images/glyphicons-halflings.png';
+$iconSpritePath     : '../images/glyphicons-halflings.png';
 $iconWhiteSpritePath: '../images/glyphicons-halflings-white.png';
+
+$colour-red: rgb(200, 65, 60);
 
 $break-xl: 1199px;
 $break-l : 1023px;
 $break-m : 767px;
 $break-s : 319px;
 
-$type-stack--kepler: kepler-std, georgia, serif;
-$type-stack--proxima: proxima-nova, 'helveica neue', helvetica, sans-serif;
+$type-stack--kepler : kepler-std, georgia, serif;
+$type-stack--proxima: proxima-nova, 'helvetica neue', helvetica, sans-serif;
+
+//=========================
+// MIXINS /////////////////
+//=========================
 
 // Clearfix
 .cf:before,
@@ -18,21 +25,26 @@ $type-stack--proxima: proxima-nova, 'helveica neue', helvetica, sans-serif;
 .cf:after   { clear: both; }
 .cf         { zoom: 1; } /* IE < 8 */
 
-body { margin: 0; font-family: $type-stack--kepler; font-size: 112.5%; font-weight: 400; }
+//=========================
+// IMPORTS ////////////////
+//=========================
 
-h1, h2, h3, h4 { font-family: $type-stack--proxima; }
+@import 'gridset';
+@import 'type';
+@import 'layout';
 
-img { max-width: 100%; }
+//=========================
+// BASE ///////////////////
+//=========================
 
-.container {
-    max-width: 1199px; margin: 0 auto;
+body    { margin: 0; }
+img     { max-width: 100%; }
 
-    @media (max-width: 1199px)  { max-width: 1024px; margin: 0 auto; }
-    @media (max-width: 1023px)  { max-width: 768px; margin: 0 auto; }
-    @media (max-width: 767px)   { max-width: 100%; margin: 0 auto; }
-}
+//=========================
+// GLOBAL PAGE STRUCTURE //
+//=========================
 
-.colour {
+.top-stripe { // Consistent line of colour at the top of the page
     position: fixed;
     top: 0; right: 0; left: 0;
     height: 8px;
@@ -42,20 +54,22 @@ img { max-width: 100%; }
     z-index: 30;
 }
 
-.back-panel {
+.back-panel { // Photograph, header and footer that pass behind page content
     position: fixed;
     top: 0; right: 0; bottom: 0; left: 0;
 
-    background: url(../images/hero.jpg) 50% 50%;
+    background: url(../images/hero.jpg) 50% top;
 
     color: #fff;
 
     z-index: 10;
+
+    &.s-reveal-footer { // Hide site navigation and title when viewing footer
+        .site-brand, .site-nav { display: none; }
+    }
 }
 
-.logo { margin: 50px 0; }
-
-.front-panel {
+.front-panel { // Page content that scrolls through the foreground
     position: relative;
     top: 400px;
     height: 1200px;
@@ -66,21 +80,57 @@ img { max-width: 100%; }
     @media (max-width: 767px) { height: 300px; }
 }
 
-.slow-feed {
-    z-index: 50;
-    background: rgba(0, 0, 0, .08);
+.slow-feed {  z-index: 50; background: rgba(0, 0, 0, .08); height: 400px; } // Passion Profiles
 
-    height: 400px;
-}
-
-.dookie {
-    .site-title,
-    .site-navigation { display: none; }
-}
+.fast-feed {} // Tumblr feed
 
 .hero-footer { position: relative; top: 400px; }
 
-.what-lives-within-us {
+//=========================
+// SITE HEADER ////////////
+//=========================
+
+.site-header { height: 400px; }
+
+.site-brand     { margin: 100px 0 0; }
+.site-title     { font-family: $type-stack--kepler; font-size: 48px; font-weight: 400; text-align: left; margin: 0; font-style: normal; }
+.site-subtitle  { font-size: 24px; font-weight: 300; font-style: italic; margin: 0; }
+
+.logo { margin: 50px 0; }
+
+.site-nav {
+    list-style: none; margin: 100px 0 0; padding: 0;
+
+    > li {
+        margin-bottom: 1em;
+
+        &:last-child { margin-bottom: 0; }
+    }
+}
+
+.site-nav--link,
+.site-nav--link:active,
+.site-nav--link:link,
+.site-nav--link:visited,
+.site-nav--link:hover       { display: block; color: #fff; font-family: $type-stack--proxima; }
+.site-nav--link--icon       { display: block; float: left; width: 40px; height: 40px; margin: 5px; background: rgba(0, 0, 0, .32); color: #fff; }
+.site-nav--link--title      { display: block; font-size: 24px; font-weight: 600; }
+.site-nav--link--caption    { display: block; }
+
+//=========================
+// Tumblr Feed ////////////
+//=========================
+
+.feed--item--meta {
+    margin: 0; padding: 0;
+    > li { display: inline-block; padding-right: 15px; }
+}
+
+//=========================
+// SITE FOOTER ////////////
+//=========================
+
+.what-lives-within-us { // “What lies behind us and what lies before us are insignificant compared to what lives within us.”
     position: fixed;
     top: 0;
     right: 0;
@@ -95,3 +145,12 @@ img { max-width: 100%; }
 
     z-index: 15;
 }
+
+// § //
+
+
+
+
+
+
+

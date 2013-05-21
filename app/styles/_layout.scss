@@ -1,0 +1,32 @@
+//=========================
+// LAYOUT /////////////////
+//=========================
+
+.container {
+    max-width: $break-xl; margin: 0 auto;
+
+    @media (max-width: $break-xl)   { max-width: $break-l;  margin: 0 auto; }
+    @media (max-width: $break-l)    { max-width: $break-m;  margin: 0 auto; }
+    @media (max-width: $break-m)    { max-width: 100%;      margin: 0 auto; }
+}
+
+.affix          { position: fixed; top: 0; }
+.affix-bottom   { position: absolute; top: auto; bottom: 0; }
+
+.slow-feed.affix,
+.slow-feed.affix-bottom { 
+    width: $break-xl * .32;
+
+    @media (max-width: 1199px)  { width: $break-l * .32; }
+    @media (max-width: 1023px)  { width: $break-m * .32; }
+    @media (max-width: 767px)   { width: 100%; position: relative; }
+}
+
+// § //
+
+
+
+
+
+
+

@@ -20,25 +20,33 @@
         <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     </head>
     <body>
-        <header class="colour"></header>
-        <div class="back-panel">
-            <div class="container">
-                <header class="cf">
-                    <hgroup class="site-title td1 m1">
-                        <h1>What Lives Within</h1>
-                        <p>You have an innate sense for finding what it is you're meant to be doing with your life.</p>
-                    </hgroup>
-                    <div class="td2 m1">
-                        <img class="logo" src="images/logo.png">
-                    </div>
-                    <div class="site-navigation td3 m1">
-                        <ul>
-                            <li>Home</li>
-                            <li>Passion Profiles</li>
-                        </ul>
-                    </div>
-                </header>
-            </div>
+        <div class="top-stripe"></div>
+        <div class="back-panel clearfix">
+            <header class="site-header container">
+                <hgroup class="site-brand td1 m1">
+                    <h1 class="site-title">What Lives Within</h1>
+                    <p class="site-subtitle">Doing the work you love to do</p>
+                </hgroup>
+                <div class="td2 m1">
+                    <img class="logo" src="images/logo.png">
+                </div>
+                <ul class="site-nav td3 m1">
+                    <li>
+                        <a class="site-nav--link" href="#">
+                            <i class="site-nav--link--icon icon-home"></i>
+                            <span class="site-nav--link--title">Home</span>
+                            <span class="site-nav--link--caption">Ideas and inspiration for pursuing your passion</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="site-nav--link" href="#">
+                            <i class="site-nav--link--icon icon-heart"></i>
+                            <span class="site-nav--link--title">Passion Profiles</span>
+                            <span class="site-nav--link--caption">What living your passion looks like</span>
+                        </a>
+                    </li>
+                </ul>
+            </header>
         </div>
         <div class="front-panel">
             <div class="container">
@@ -46,16 +54,26 @@
                     §
                 </div>
                 <div class="fast-feed td2-td3 m1">
-                    <article class="feed-item feed-{{ post.type }}">
-                        <h1 class="feed-post--title"><a href="{% url 'blog_single' post_id=post.id %}">3 Steps to Becoming a Better Learner</a></h1>
+                    <article class="feed--item feed-{{ post.type }}">
+                        <h1 class="feed--item--title"><a class="non-standard" href="{% url 'blog_single' post_id=post.id %}">3 Steps to Becoming a Better Learner</a></h1>
                         <p>Here’s a puzzle: Even though people talk about leadership all the time, and roughly eight kajillion leadership books have been published, we’re still plagued with fair to poor leaders in many, perhaps most, organizations.</p>
                         <p>Why is this?  Part of the problem is that most of us, deep down, don’t really think it’s possible for an okay leader to become a great leader. We believe leadership ability is inborn. Either you have it or you don’t. Unfortunately, thinking something is impossible makes it very difficult to accomplish.</p>
                         <p>The other difficulty is that most adults aren’t very good learners. In order to become the best leader (or, actually, the best anything) you’re capable of being, you have to become a great learner. Here are the three things most required to be that kind of powerful learner:</p>
-                        <ul class="feed-metadata">
-                            <li class="feed-metadata--date">5 Days Ago</li>
+                        <ul class="feed--item--meta">
+                            <li class="feed--item--meta--date">5 Days Ago</li>
                             <li>#Love</li>
                             <li>#Compassion</li>
                             <li>#Fun</li>
+                        </ul>
+                    </article>
+                    <article class="feed-item feed-photo">
+                        <figure>
+                            <img alt="placeholder" src="http://24.media.tumblr.com/aae0634371ee10af3e9e8579b616dea1/tumblr_mmjh06z03M1reyceho1_1280.jpg">
+                            <figcaption><p>Donny!</p></figcaption>
+                        </figure>
+                        <ul class="feed-metadata">
+                            <li class="feed-metadata--date"></li>
+                            <li>#image</li><li>#cute</li><li>#element</li><li>#passion</li>
                         </ul>
                     </article>
                 </div>
@@ -99,17 +117,19 @@
             $(function () {
                 set_footer_size();
                 set_slow_feed_offset();
+                
                 $(window).resize(function () {
                     set_footer_size();
                     set_slow_feed_offset();
                 });
+
                 $(window).scroll(function () {
                     if ($(document).scrollTop() + $(window).height() >= $(document).height() - $(window).height()) {
-                        if (!$('.back-panel').hasClass('dookie')) {
-                            $('.back-panel').addClass('dookie');
+                        if (!$('.back-panel').hasClass('s-reveal-footer')) {
+                            $('.back-panel').addClass('s-reveal-footer');
                         }
-                    } else if ($('.back-panel').hasClass('dookie')) {
-                        $('.back-panel').removeClass('dookie');
+                    } else if ($('.back-panel').hasClass('s-reveal-footer')) {
+                        $('.back-panel').removeClass('s-reveal-footer');
                     }
                 });
             });
